@@ -11,7 +11,7 @@ public class CastingExample3 {
 		int intResult = c + i;
 		char charResult = (char)(c + i);
 		// 작은 쪽이 큰 쪽에 맞추어져 연산된다! 따라서 char가 int(66)로 맞추어져 연산된다!
-		// (int)66 을 char로 바꾸었으니 D가 나온 것
+		// (int)68 을 char로 바꾸었으니 D가 나온 것
 		
 		System.out.println(intResult);
 		System.out.println(charResult);
