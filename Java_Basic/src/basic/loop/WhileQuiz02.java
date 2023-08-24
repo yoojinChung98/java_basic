@@ -1,5 +1,8 @@
 package basic.loop;
 
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 public class WhileQuiz02 {
 
 	public static void main(String[] args) {
@@ -15,6 +18,36 @@ public class WhileQuiz02 {
          입력: 7, 3 -> "3부터 7까지의 누적합계: 25")
          - while문을 if else 로 나눠서 두번 쓰는 것은 지양하겠습니다.
         */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		//콤마로 입력받기
+		System.out.print("정수를 두 개 입력해주세요(콤마로 구분): ");
+		String str = sc.nextLine();
+		StringTokenizer st = new StringTokenizer(str, ",");
+		int numX = Integer.parseInt(st.nextToken());
+		int numY = Integer.parseInt(st.nextToken());
+		
+		int count = numX-numY; //반복 횟수
+		
+		// 부호에 따라서 어디서 더할지 정하는 if문
+		// numX-numY>0 : +, numX가 더 큼.
+		
+		int sum =0;
+		int i = 0;
+		while(i<=Math.abs(count)) {
+			if(count<0) {
+				sum += numX;
+				numX++;
+			} else {
+				sum += numY;
+				numY++;
+			}
+			i++;
+		}
+		System.out.println(sum);
+		
+	sc.close();
 	}
 
 }
