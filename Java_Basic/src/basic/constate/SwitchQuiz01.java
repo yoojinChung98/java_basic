@@ -14,8 +14,59 @@ public class SwitchQuiz01 {
           결과를 말씀해 주세요.
          */
 		
-		Scanner sc = new Scanner(System.in);
 		
+		
+		Scanner sc = new Scanner(System.in);
+        
+        System.out.print("정수 1: ");
+        int num1 = sc.nextInt();
+        
+        System.out.print("연산을 선택하세요. [+,-,*,/]");
+        String operator = sc.next();
+        
+        System.out.print("정수 2: ");
+        int num2 = sc.nextInt();
+        
+        int result = 0;
+        boolean flag = false;
+        
+        switch(operator) {
+        
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            if(num2 == 0) {
+                System.out.println("연산할 수 없는 입력값 입니다.");
+                flag = true;
+                break;
+            }
+            result = num1 / num2;
+            break;
+        
+        default:
+            System.out.println("연산 기호를 정확하게 입력하세요.");
+            System.out.println("[+,-,*,/]");
+        }
+        
+        if(!flag) {
+            System.out.printf("%d %s %d = %d\n", num1, operator, num2, result);            
+        }
+        
+        sc.close();
+		
+		
+		
+		
+		
+		/*
+		Scanner sc = new Scanner(System.in);
 		// , 로 구분하기
 		System.out.print("정수와 연산자를 하나씩 입력해주세요(콤마로 구분): ");
 		String str = sc.nextLine();
@@ -23,41 +74,43 @@ public class SwitchQuiz01 {
 		int num1 = Integer.parseInt(st.nextToken());
 		String operator = st.nextToken();
 		
-//		// 엔터로 입력받기
-//		System.out.println("정수와 연산자를 하나씩 입력해주세요(엔터로 구분)");
-//		int num1 = sc.nextInt();
-//		String operator = sc.next();
-	
+		
+		// 엔터로 입력받기
+		//System.out.println("정수와 연산자를 하나씩 입력해주세요(엔터로 구분)");
+		//int num1 = sc.nextInt();
+		//String operator = sc.next();
+		
 		System.out.print("연산할 정수를 하나 입력해주세요: ");
 		int num2 = sc.nextInt();
 		
 		switch(operator) {
 		
-		case("+"):
+		case "+":
 			System.out.println("===== 연산결과 =====");
 			System.out.printf(" %d %s %d = %d",num1, operator, num2, num1+num2);
 			break;
-		 case("-"):
+		 case "-":
 				System.out.println("===== 연산결과 =====");
 				System.out.printf(" %d %s %d = %d",num1, operator, num2, num1-num2);
 				break;
-		 case("*"):
+		 case "*":
 				System.out.println("===== 연산결과 =====");
 				System.out.printf(" %d %s %d = %d",num1, operator, num2, num1*num2);
 				break;
-		 case("/"):
+		 case "/":
 				System.out.println("===== 연산결과 =====");
 				System.out.printf(" %d %s %d = %d",num1, operator, num2, num1/num2);
 				break;
-		 case("%"): 
+		 case "%": 
 				System.out.println("===== 연산결과 =====");
 				System.out.printf(" %d %s %d = %d",num1, operator, num2, num1%num2);
 				break;
 		default: 
 			System.out.println("올바른 값을 입력해주세요");
 		}
-		
-	sc.close();
+		sc.close();
+	*/	
+	
 	}
 
 }

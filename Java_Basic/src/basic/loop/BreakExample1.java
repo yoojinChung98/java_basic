@@ -22,7 +22,7 @@ public class BreakExample1 {
 
 		outer:for(int i=0; i<=2; i++) {
 			for(int j=0; j<=1; j++) {
-				//				if(i == j) break outer;  //break는 자신이 포함되어있는 for문만 탈출. 바깥반복문은 계속 돔.
+//				if(i == j) break outer;  //break는 자신이 포함되어있는 for문만 탈출. 바깥반복문은 계속 돔.
 				if(i == j) continue outer;  //break는 자신이 포함되어있는 for문만 탈출. 바깥반복문은 계속 돔.
 				System.out.println(i + "-" +j);
 			}

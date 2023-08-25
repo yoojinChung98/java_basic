@@ -33,50 +33,66 @@ public class IfQuiz03 {
 		int numC = Integer.parseInt(st.nextToken());
 		
 		
+		//교수님 풀이! 먼저 num1을 최댓값이라고 상정하고 num2-3를 비교
+//		int max, mid, min;
+//		
+//		if(numA > numB && numA > numC) {//num1이 max다!
+//			max = numA;
+//			if(numB > numC) {
+//				mid = numB; min = numC;
+//			} else {
+//				mid = numC; min = numB;
+//			}
+//		} else if(numB> numA && numB > numC) {//num2가 max다
+//			max = numB;
+//			if(numA > numC) {
+//				mid = numA; min = numC;
+//			}else {
+//				mid = numC; min = numA;
+//			}
+//		} else { //num3 가 max다!
+//			max = numC;
+//			if(numA > numB) {
+//				mid = numA; min = numB;
+//			} else {
+//				mid = numB; min = numA;
+//			}
+//		}
+//		
+//		System.out.println("-------------------------------");
+//		System.out.println("최대값: "+ max);
+//		System.out.println("중간값: "+ mid);
+//		System.out.println("최소값: "+ min);
 		
-		int max, mid, min;
-		// A>B B>C = A가 가장 크다
-		// A>B B<C = A C 크기 비교 & B가 가장 작다
-				//A>C : a c b       C>A  c a b
-		if(numA>=numB) {
-			if(numB>=numC) {
-				max = numA;
-				mid = numB;
-				min = numC;
-				System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
-			}else{
-				if(numA>=numC) {
-					max = numA;
-					mid = numC;
-					min = numB;
-					System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
-				} else {
-					max = numC;
-					mid = numA;
-					min = numB;
-					System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
-				}
-			}
-		} else { // B>A 일때 A>C 이면 b a c   //A<C  B와C비교   B>C : bca  C>B cba
-			if(numA>=numC) {
-				max = numB;
-				mid = numA;
-				min = numC;
-				System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
-			}else{
-				if(numB>=numC) {
-					max = numB;
-					mid = numC;
-					min = numA;
-					System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
-				} else {
-					max = numC;
-					mid = numB;
-					min = numA;
-					System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
-				}
-			}
-		}
+		
+		
+//		int max, mid, min;
+//		// A>B B>C = A가 가장 크다
+//		// A>B B<C = A C 크기 비교 & B가 가장 작다
+//				//A>C : a c b       C>A  c a b
+//		if(numA>=numB) {
+//			if(numB>=numC) {
+//				max = numA; mid = numB; min = numC;
+//			}else{
+//				if(numA>=numC) {
+//					max = numA; mid = numC; min = numB;
+//				} else {
+//					max = numC; mid = numA; min = numB;
+//				}
+//			}
+//		} else { // B>A 일때 A>C 이면 b a c   //A<C  B와C비교   B>C : bca  C>B cba
+//			if(numA>=numC) {
+//				max = numB; mid = numA; min = numC;
+//			}else{
+//				if(numB>=numC) {
+//					max = numB; mid = numC; min = numA;
+//				} else {
+//					max = numC; mid = numB; min = numA;
+//				}
+//			}
+//		}	
+//		System.out.printf("가장 큰 값: %d, 중간값: %d, 가장 작은 값: %d\n",max,mid,min);
+		
 		sc.close();
 	}
 

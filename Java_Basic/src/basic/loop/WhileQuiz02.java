@@ -18,9 +18,47 @@ public class WhileQuiz02 {
          입력: 7, 3 -> "3부터 7까지의 누적합계: 25")
          - while문을 if else 로 나눠서 두번 쓰는 것은 지양하겠습니다.
         */
+
 		
 		Scanner sc = new Scanner(System.in);
+        System.out.print("정수1: ");
+        int num1 = sc.nextInt();
+        System.out.print("정수2: ");
+        int num2 = sc.nextInt();
+        //여기 하단 체크한번 더 하기! 아직 수정 안끝남
+        if(num1 > num2) {
+            int temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+        
+        int n = num1;
+        int total = 0;
+        while(n <= num2) {
+            total += n;
+            n++;
+        
+        
+        /* 시작값 끝값 지정해서 하기
+        int start = (num1 > num2 ? num2 : num1);
+        int end = (num1 > num2 ? num1 : num2);
+        
+        int total = 0;
+        while(start <= end) {
+            total += start;
+            start++;
+        */
+        }
+        
+        System.out.printf("%d부터 %d까지의 누적합계: %d\n", num1, num2, total);
+
+        sc.close();
 		
+		
+		
+		
+		/* 
+		Scanner sc = new Scanner(System.in);
 		//콤마로 입력받기
 		System.out.print("정수를 두 개 입력해주세요(콤마로 구분): ");
 		String str = sc.nextLine();
@@ -29,7 +67,6 @@ public class WhileQuiz02 {
 		int numY = Integer.parseInt(st.nextToken());
 		
 		int count = numX-numY; //반복 횟수
-		
 		// 부호에 따라서 어디서 더할지 정하는 if문
 		// numX-numY>0 : +, numX가 더 큼.
 		
@@ -45,9 +82,8 @@ public class WhileQuiz02 {
 			}
 			i++;
 		}
-		System.out.println(sum);
-		
-	sc.close();
+		System.out.println(sum);	
+		sc.close();
+		*/
 	}
-
 }
