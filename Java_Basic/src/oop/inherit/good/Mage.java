@@ -7,7 +7,7 @@ public class Mage extends Player {
 	@Override
 	void characterInfo() {
 		super.characterInfo();
-		System.out.println("# 정신력: "+mana);
+		System.out.println("# 정신력: " + mana);
 	}
 
 }

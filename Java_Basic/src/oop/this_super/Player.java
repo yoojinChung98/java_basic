@@ -8,8 +8,7 @@ public class Player extends Object {//Object = 자바의 최상위 클래스.
 	int hp;
 	
 	Player() {
-		// 얘도 super가 있습니다.
-		
+		// 얘도 super가 있습니다. Object
 		System.out.println("Player의 기본 생성자 호출!");
 //		System.out.println("this의 주소값: "+this);
 		level = 1;
@@ -34,11 +33,10 @@ public class Player extends Object {//Object = 자바의 최상위 클래스.
 		this(name); // 다른 생성자의 호출은 생성자 내에서 최상단에 위치해야 합니다!
 		System.out.println("Player의 3번 생성자 호출");
 //		this.name = name;
-		
 		this.hp = hp;
 	}
 	
-	void attack(Player target) { //Player 타입의 객체를 보내~ 
+	void attack(Player target) { //Player 타입의 인스턴스(target)를 보내~ 
 		//this = 부른 녀석의 주소값
 		//target = 가져온 Player인스턴스의 주소값
 		//p3.attack(p2); -> p3=this, p2=target

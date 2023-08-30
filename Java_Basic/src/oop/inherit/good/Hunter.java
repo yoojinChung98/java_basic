@@ -7,7 +7,8 @@ public class Hunter extends Player {
 	@Override
 	void characterInfo() {
 		super.characterInfo();
-		System.out.println("# 펫 이름: "+pet);
+		System.out.println("# 펫 이름: " + pet);
 	}
+
 
 }

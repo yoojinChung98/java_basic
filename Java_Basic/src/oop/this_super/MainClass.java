@@ -30,6 +30,16 @@ public class MainClass {
 		w1.characterInfo();
 		//Warrior와 Player가 같이 생성됨
 		
+		System.out.println("-------------------------------------");
+		
+		Mage m1 = new Mage("법사짱장맨");
+		m1.characterInfo();
+		
+		System.out.println("-------------------------------------");
+		
+		Hunter h1 = new Hunter("냥꾼짱장맨");
+		h1.characterInfo();
+		
 	}
 
 }
