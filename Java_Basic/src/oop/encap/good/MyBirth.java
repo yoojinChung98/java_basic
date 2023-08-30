@@ -90,14 +90,33 @@ public class MyBirth {
 	}
 	
 	
+	private boolean inputCheck(int n) {
+		if(n!=0) return true;
+		else return false;
+	}
+	
 	//완성된 생일 정보를 출력해 주는 메서드
 	public void birthInfo() {
 		//year, month, day 셋 중 단 하나라도 제대로 값이 셋팅되지 않았다면
 		//출력을 해 주지 않겠다.
+		if(!inputCheck(this.year)) {
+			System.out.println("연도 값이 입력되지 않아 출력이 불가능합니다.");
+			return;
+		}
+		if(this.month==0) {
+			System.out.println("월 값이 입력되지 않아 출력이 불가능합니다.");
+			return;	
+		}
+		if(this.day==0) {
+			System.out.println("일 값이 입력되지 않아 출력이 불가능합니다.");
+			return;
+		}
+		System.out.printf("내 생일은 %d년 %d월 %d일 입니다.\n"
+				, this.year, this.month, this.day);
 	}
 	
 	private void isValidateMonth() {
-		//각 월에 적합한 일자가 세팅이 되어 있는지를 판별하는 메서드
+		//각 월에 적합한 일자가 세팅이 되어 있는지를 판별하는 메서드(switch)
 	}
 	
 	/*
