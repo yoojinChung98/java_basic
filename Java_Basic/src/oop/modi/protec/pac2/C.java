@@ -2,7 +2,7 @@ package oop.modi.protec.pac2;
 
 import oop.modi.protec.pac1.A;
 
-public class C extends A {
+public class C extends A{ //만일 A의 클래스가 protected라면... extends A 자체가 불가능... 아직 자식클래스가 아닌데 얘를 어떻게 지목해서 자식클래스로 만들래...? 
 
 //	A a1 = new A(30); // protected 자식 클래스만 가능
 //	A a2 = new A(5.67); // default 다른패키지라서 불가능
