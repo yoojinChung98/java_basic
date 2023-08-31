@@ -37,7 +37,7 @@ public class Mage extends Player{
 //		System.out.printf("%s님이 %d의 피해를 입었습니다. (남은 체력: %d)\n"
 //				, p.name, damage, p.hp);
 //	}
-	}// blizzard 메서드 종료
+	} // blizzard 메서드 종료
 	
 	@Override
 	void characterInfo() {

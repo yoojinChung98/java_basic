@@ -60,5 +60,5 @@ public class Basic {
 	Object o5 = new E();
 	Object o6 = new String("안녕하세요!");
 	Object o7 = new Basic();
-
+	
 }

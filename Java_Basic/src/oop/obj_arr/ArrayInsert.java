@@ -25,15 +25,15 @@ public class ArrayInsert {
 		
 		//향상for문 진쯔 으릅드
 		
-//		for(int i=0; i<people.length; i++) {
-//			System.out.print("이름을 입력하세요: ");
-//			String name = sc.next();
-//			System.out.print("나이를 입력하세요: ");
-//			int age = sc.nextInt();
-//			System.out.print("성별을 입력하세요: ");
-//			String gender = sc.next();		
-//			people[i] = new Person(name, age, gender);
-//		}
+		for(int i=0; i<people.length; i++) {
+			System.out.print("이름을 입력하세요: ");
+			String name = sc.next();
+			System.out.print("나이를 입력하세요: ");
+			int age = sc.nextInt();
+			System.out.print("성별을 입력하세요: ");
+			String gender = sc.next();		
+			people[i] = new Person(name, age, gender);
+		}
 		
 //		for(Person p : people) { //여기서 people 의 기본값은 null...?
 //			System.out.print("이름: ");

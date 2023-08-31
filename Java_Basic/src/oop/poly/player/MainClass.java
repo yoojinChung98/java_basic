@@ -43,8 +43,10 @@ public class MainClass {
 		
 		
 		m1.blizzard(w1, w2, m2, h1, h2);  // 나는 가변인수로 받았음.
+		
 //		Player[] targets = {w1, w2, m2, h1, h2};	
 //		m1.blizzard(targets);
+		// 영구적으로 형변환이 되는건 아니다~ Player로 형변환이 필요해서 변환한동안만 변환되어있는거다!
 		
 		w1.attack(m1);
 		m1.attack(w1);
