@@ -46,11 +46,14 @@ public class MainClass {
 		
 //		Player[] targets = {w1, w2, m2, h1, h2};	
 //		m1.blizzard(targets);
-		// 영구적으로 형변환이 되는건 아니다~ Player로 형변환이 필요해서 변환한동안만 변환되어있는거다!
+		// 영구적으로 형변환이 되는건 아니다~ Player로 형변환이 필요해서 변환한 동안만 변환되어있는거다!
+		System.out.println("=================================");
 		
-		w1.attack(m1);
-		m1.attack(w1);
+		h1.attack(m1);
 		
+		w1.rush(m2);
+		w1.rush(h1);
+		w1.rush(w2);
 		
 		
 	}

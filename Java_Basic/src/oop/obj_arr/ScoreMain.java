@@ -34,6 +34,7 @@ public class ScoreMain {
 			System.out.print("이름 >");
 			String n = sc.next();
 			if (n.equals("그만")) break;
+			
 			System.out.print("국어성적 >");
 			int k = sc.nextInt();
 			System.out.print("영어성적 >");

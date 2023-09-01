@@ -63,8 +63,14 @@ public class MainClass {
 		
 		Car c1 = kim.buyCar("테슬라");
 		c1.run();
-		Car c2 = kim.buyCar("포르쉐");
+//		c1.activeAutoPilot(); (X)//부모Car객체는 Tesla만의 activeAutoPilot메서드를 알 수 없음.
+		Tesla myTesla = (Tesla) c1;
+		myTesla.activeAutopilot();
+		
+		//애초에 처음부터 테슬라타입으로 받으면 굳이 변수를 또 선언할 필요가 없음.
+		Tesla c2 = (Tesla)kim.buyCar("테슬라");
 		c2.run();
+		c2.activeAutopilot();
 		
 	}
 
