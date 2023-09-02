@@ -1,26 +1,20 @@
 package basic;
-import java.util.Scanner;
+
 public class ForBook {
-	public static void main(String[] args) {
+	public static void main(String[] arg) {
 		/*
-        - 정수를 하나 입력받고, 연산자를 하나 입력 받으세요.
-         다시 정수를 입력받아서, 사용자가 선택한 연산자를 기준으로
-         연산 결과를 출력해 주시면 됩니다. (switch문 사용)
-         연산자가 잘못 입력되었다면 연산자를 똑바로 입력하라고
-         결과를 말씀해 주세요.
+API문서를 참조하여 String클래스의 메서드 중 charAt(int index)를 이요하여
+프로그램이 시작될 때 전달된 arg[0]체서 첫 문자가 소문자인지, 또는 숫자인지를 알아내는 프로그램을 작성하시오
         */
        
-		//정수입력, 연산자입력받기, 정수입력받기
-//		Scanner sc =new Scanner(System.in);
-//		int num1 = sc.nextInt();
-//		int operator = sc.next();
-//		int num2 = sc.nextInt();
-//		
-//		
-//		
-//		sc.close();
 		
+		char str = arg[0].charAt(0);
 		
+		if(str>=48 && str<=57) System.out.println("숫자입니다");
+		else if(str>=97 && str<=122) System.out.println("소문자입니다");
+		else System.out.println("소문자도 숫자도 아닙니다");
+		
+	
 		
 	}
 }
