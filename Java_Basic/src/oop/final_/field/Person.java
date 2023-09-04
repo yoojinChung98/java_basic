@@ -9,7 +9,7 @@ public class Person {
 	public Person(String name) {// 생성하는 동시에 초기화를 시켜주기 가능!
 		this.name = name;
 	}
-	// final 을 사용하는 방버비
+	// final 을 사용하는 방법
 	//1. 직접 값 대입하기
 	//2. 생성자를 통해 생성하는 동시에 초기화시키기
 	

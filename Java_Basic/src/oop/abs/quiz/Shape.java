@@ -15,11 +15,15 @@ public abstract class Shape {
 	
 	
 	private String name;
-		
-	abstract double getArea();
 	
-	public void getName() {
-		System.out.printf("이 도형은 %s 입니다.\n", this.name);
+	public Shape(String name) {
+		this.name = name;
+	}
+		
+	public abstract double getArea();
+	
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {

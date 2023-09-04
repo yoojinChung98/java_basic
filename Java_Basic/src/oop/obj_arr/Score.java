@@ -22,6 +22,20 @@ public class Score {
 	private double average;
 	
 	Score() {}
+	
+	
+
+	public Score(String name, int korean, int english, int math) {
+		super();
+		this.name = name;
+		this.korean = korean;
+		this.english = english;
+		this.math = math;
+		this.total = korean+english+math;
+		this.average = total/3.0;	
+	}
+
+
 
 	public String getName() {
 		return name;
@@ -74,13 +88,13 @@ public class Score {
 	
 	
 	public void scoreCalc() {
-		this.total = this.korean+this.english+this.math;
-		this.average = this.total/3.0;	
+		total = korean+english+math;
+		average = total/3.0;	
 	}
 	
 	public void scoreInfo() {
 		System.out.printf("이름: %s   국어성적: %d   영어성적: %d   수학성적: %d   총점: %d   평균: %.2f\n"
-				,this.name, this.korean, this.english, this.math, this.total, this.average );
+				,name, korean, english, math, total, average );
 	}
 	
 	

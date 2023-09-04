@@ -23,17 +23,20 @@ public class ScoreMain {
          모두 null로 가득 차 있습니다. (null.scoreInfo() -> 에러)
         */
 		
+		Score[] scores = new Score[100];
 		Scanner sc = new Scanner(System.in);
-		Score[] stuList = new Score[100];
 		int cnt = 0;
 		
-		for(int i=cnt; i<stuList.length; i++) {
-			System.out.println("*** 새로운 성적 등록을 시작합니다. 중단을 원하시면 '그만'을 입력해주세요.");
-			Score s = new Score();
+		for(int i=cnt; i<scores.length; i++) {
+			System.out.println("*** 새로운 성적 등록을 시작합니다.");
+			System.out.println("*** 중단을 원하시면 '그만'을 입력해주세요.");
 			
 			System.out.print("이름 >");
 			String n = sc.next();
-			if (n.equals("그만")) break;
+			if (n.equals("그만")) {
+				System.out.println("입력을 종료합니다.");
+				break;
+			}
 			
 			System.out.print("국어성적 >");
 			int k = sc.nextInt();
@@ -42,18 +45,21 @@ public class ScoreMain {
 			System.out.print("수학성적 >");
 			int m = sc.nextInt();
 			
-			stuList[i] = s;
-			stuList[i].setName(n); stuList[i].setKorean(k); stuList[i].setEnglish(e); stuList[i].setMath(m);
-			stuList[i].scoreCalc();
+//			int total = k+e+m;
+//			double average = total/3;
+//			scores[i] = new Score(n, k, e, m, total, average);
+			
+			scores[i] = new Score(n, k, e, m);
 			cnt++;
 		}
 		sc.close();
 		
 		System.out.println("********************************************");
 		System.out.println("모든 학생의 성적을 출력합니다.");
-		for(Score s: stuList) {
-			if(s == null) break;
+		for(Score s: scores) {
+			if(s == null) break; //nullPointerException null주소를 참조해서 scoreInfo()를 호출하면 발생하는 error
 			s.scoreInfo();
+			// 주소값을 가지고 있는 변수 = pointer(변수)
 		}
 		System.out.println("출력을 완료했습니다.");
 	}
