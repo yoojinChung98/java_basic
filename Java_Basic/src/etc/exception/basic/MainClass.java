@@ -17,6 +17,7 @@ public class MainClass {
 		 (만약 nextInt()가 정수를 가지고 오지 못하는 경우 (문자열 등등)
 		 버퍼에 해당 쓰레기 문자가 그대로 남아 있습니다. 그걸 걷어가 주셔야 합니다.
 		 nextLine()를 통해 쓰레기 문자를 정리해야 합니다.) 
+		 // sc.nextLine() 이 해당 문자(에러를 발생시킨 문자)를 수거하고 이제 깨끗해졌으니 담을 것이 없어서 int num1은 기다리는 것!
 		*/
 		
 		Scanner sc = new Scanner(System.in);
