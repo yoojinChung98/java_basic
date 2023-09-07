@@ -15,7 +15,7 @@ static Random r = new Random();
     static int prize3 = 0; //3등 당첨 횟수를 세 줄 변수
     static int prize4 = 0; //4등 당첨 횟수를 세 줄 변수
     static int prize5 = 0; //5등 당첨 횟수를 세 줄 변수
-    static int failCnt = 0; // 당첨 횟수를 세 줄 변수
+    static int failCnt = 0; // 미당첨 횟수를 세 줄 변수
     
     
     public static Set<Integer> createLotto() {
@@ -24,6 +24,15 @@ static Random r = new Random();
           컬렉션 자료형에 모아서 리턴해 주세요.
           무엇을 쓰든 상관하지 않겠습니다.
           중복이 발생하면 안됩니다.
+          
+          List<Integer> lotto = new ArrayList<>();
+          
+          while(lotNum.size()<6) {
+          	int num = r.nextInt(45) + 1;
+          	if(!lotto.contains(num)){
+          		lotto.add(num);
+          	}
+          }
          */    
     	Set<Integer> lotNum = new HashSet<>();
     	
@@ -35,7 +44,7 @@ static Random r = new Random();
     
     
     //보너스 번호를 생성하는 메서드
-    public static int createBonusNum(Set lotNum) {
+    public static int createBonusNum(Set<Integer> lotNum) {
         
         /*
          - 매개값으로 전달되는 당첨 번호 집합을 전달 받으신 후
@@ -45,13 +54,12 @@ static Random r = new Random();
 	
     	while(true) {
     		int bonusNum =(r.nextInt(45)+1);
-    		if(lotNum.contains(bonusNum)) continue;
-    		return bonusNum;
+    		if(!lotNum.contains(bonusNum)) return bonusNum;
     	}
     }
     
     //당첨 등수를 알려주는 메서드
-    public static void checkLottoNumber(Set lotNum, Set myNum, int bonusNum) {
+    public static void checkLottoNumber(Set<Integer> lotNum, Set<Integer> myNum, int bonusNum) {
         /*
          매개값으로 당첨번호집합, 구매한 로또 번호집합, 보너스번호를 받습니다.
          내 로또 번호와 당첨번호를 비교하여
@@ -63,11 +71,13 @@ static Random r = new Random();
          4개 일치 -> 4등
          3개 일치 -> 5등
          나머지 -> 꽝
+         
+         int count = 0;
+         for(int n : myLotto) {
+         	if(win.contains(n)) count++;
+         }
          */
-    	//for문 돌려서 cnt++ 로 개수 체크하면 될듯
     	
-    	//번호 하나마다 for문 돌리기엔 너무 시간이 아까운데...
-    	//contains으로 쓸 수 있나?
     	Iterator<Integer> iter = lotNum.iterator(); 
     	
     	int n = 6;
@@ -81,10 +91,12 @@ static Random r = new Random();
     			else if( ! myNum.contains(iter.next())) n--;
 	
     	
-    	if(n==6) { prize1++; return; }
-    	if(n==5) {if(myNum.contains(bonusNum)) { prize2++; return; }  prize3++; return;}
-    	if(n==4) { prize4++; return; }
-    	if(n==3) { prize5++; return; }
+    	if(n==6) { prize1++; }
+    	else if(n==5) {if(myNum.contains(bonusNum)) prize2++; else prize3++;}
+    	else if(n==4) prize4++;
+    	else if(n==3) prize5++;
+    	
+    	return;
     }
     
 	
@@ -94,29 +106,28 @@ static Random r = new Random();
 	
 		//로또 번호 생성 메서드를 호출해서 당첨 번호를 하나 "고정"시키세요.
 		Set<Integer> lotNum = createLotto();
-        System.out.println(lotNum);
 		
         //보너스번호도 하나 "고정"시키세요.
 		int bonusNum = createBonusNum(lotNum);
-		System.out.println(bonusNum);
         
+		int paper = 0;
 		System.out.println("*** 무지성 로또 구매를 시작합니다 ***");
         while(true) { 
         	
         	Set<Integer> myNum = createLotto();
+        	paper++;
+        	
         	checkLottoNumber(lotNum, myNum, bonusNum);
         	
         	if(prize1==1) {
-        		long total = prize1+prize2+prize3+prize4+prize5+failCnt;
+        		long totalW = prize1+prize2+prize3+prize4+prize5;
         		System.out.println("-----------만세! 드디어 1등에 당첨되었습니다!");
-        		System.out.printf("1등 당첨횟수: %d회\n",prize1);
-        		System.out.printf("2등 당첨횟수: %d회\n",prize2);
-        		System.out.printf("3등 당첨횟수: %d회\n",prize3);
-        		System.out.printf("4등 당첨횟수: %d회\n",prize4);
-        		System.out.printf("5등 당첨횟수: %d회\n",prize5);
-        		System.out.printf("총 구매횟수: %d회\n", total);
-        		System.out.printf("총 로또 구매 비용: %d원\n",total*1000);
-        		break;
+        		System.out.printf("총 당첨횟수: %d회\n1등: 1회\n2등: %d회\n3등: %d회\n4등: %d회\n5등: %d회\n꽝: %d회\n",
+        				totalW, prize2, prize3, prize4, prize5, failCnt);
+        		System.out.printf("총 로또 구매 비용: %d원\n",(totalW+failCnt)*1000);
+        		break;	
+        	} else {
+        		System.out.println("로또" + paper+ "째 구매중" );
         	}
         	
             /*
