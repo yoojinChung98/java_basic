@@ -23,20 +23,23 @@ public class ParseQuiz {
 		*/
 		
 		Scanner sc = new Scanner(System.in);
-		String str1;
+		String str;
 		String[] nums;
 		
-		while(true) {
+		input: while(true) {
 			System.out.print("주민등록번호(하이픈 포함)> ");
-			str1 = sc.next();
+			str = sc.next();
 			//하단의 str1.indexOf = -1 이면 재입력.
-			if(str1.indexOf('-') == -1) {
-				System.out.println("하이픈(-)을 포함하여 다시입력해주세요");
+			if(str.indexOf('-') == -1) {
+				System.out.println("하이픈(-)을 포함하여 다시 입력해주세요\n");
+				continue;
+			}else if(str.length()!=14) {//14자리 모두 입력하지 않았을 때
+				System.out.println("주민등록번호 14자리 모두 입력해주세요\n");
 				continue;
 			}
 			
 			//나눠서 체크
-			nums = str1.split("-");
+			nums = str.split("-");
 
 			//하이픈 제외 값이 숫자가 아닐 때
 			try {
@@ -44,16 +47,16 @@ public class ParseQuiz {
 				Integer.parseInt(nums[1]);
 //				if(str1.length()!=14) throw new 
 			}catch(Exception e){
-				System.out.println("주민등록번호 앞자리 및 뒷자리에 숫자 이외의 값이 입력되었습니다.");
+				System.out.println("숫자 이외의 값이 입력되었습니다.\n");
 				continue;
-				//다중 캐치로 배열 사이즈가 안돼서 터지는거는 주민번호 16자리를 모두 입력해주세요 출력하자
+				//다중 캐치로 배열 사이즈가 안돼서 터지는거는 주민번호 14자리를 모두 입력해주세요 출력하자
 			}
 			
 			//뒷자리가 1 2 3 4 로 시작하지 않을 
 			switch (nums[1].charAt(0)) {
-			case 0: case 5: case 6: case 7: case 8: case 9:
-				System.out.println("주민등록번호가 잘못 입력되었습니다.");
-				continue;
+			case '0': case '5': case '6': case '7': case '8': case '9':
+				System.out.println("주민등록번호 뒷자리가 잘못 입력되었습니다.\n");
+				continue input;
 			}
 			
 			break;
@@ -66,7 +69,7 @@ public class ParseQuiz {
 		int day = Integer.parseInt(nums[0].substring(4,6));
 		int age = LocalDateTime.now().getYear() - year;
 		String gender=null;
-			if(nums[1].charAt(0) == 1 || nums[1].charAt(0) == 3) gender = "남자";
+			if(nums[1].charAt(0) == '1' || nums[1].charAt(0) == '3') gender = "남자";
 			else if (nums[1].charAt(0) == '2' || nums[1].charAt(0) == '4') gender = "여자";
 			
 		System.out.printf("%d년 %d월 %d일 %d세 %s\n",year, month, day, age, gender);
