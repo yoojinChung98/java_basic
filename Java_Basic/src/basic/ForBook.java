@@ -30,14 +30,14 @@ public class ForBook {
 		FileInputStream fis = null;  //생성자,반납에 throw있어서 외부에서 선언과 초기화.
 		
 		try{
-				fis = new FileInputStream("C:\\Users\\yooji\\Desktop\\test.txt");
+				fis = new FileInputStream("C:\\Users\\ict\\Desktop\\test.txt");
 				//존재하지 않는 파일을 읽으면 당연히 터지겠지?
 				
+				byte[] arr = new byte[9];
 				while(true) {
-					byte[] arr = new byte[9];
 					int res = fis.read(arr);
 					
-//					if(res == -1) break;
+					if(res == -1) break;
 					for(byte b :arr) {
 						if(b==0) break;
 						System.out.print((char)b);
