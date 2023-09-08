@@ -1,5 +1,7 @@
 package etc.api.io.buffered;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -42,9 +44,12 @@ public class BufferedQuiz {
 		sc.nextLine();
 		
 		FileWriter fw = null;
+		BufferedWriter bw = null;
 		
 		try {
 			fw = new FileWriter("C:/MyWork/"+folderName+"file/"+fileName+".txt");
+			bw = new BufferedWriter(fw);
+			
 			StringBuilder strB = new StringBuilder();
 			
 			while(true) {				
@@ -56,11 +61,12 @@ public class BufferedQuiz {
 				} else break;
 			}//while end
 			
-			fw.write(strB.toString());	
+			bw.write(strB.toString());	
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
+				bw.close();
 				fw.close();
 				System.out.println("파일에 내용 삽입을 중단합니다.");
 			} catch (Exception e1) {
@@ -70,13 +76,15 @@ public class BufferedQuiz {
 		
 		System.out.println("********* 파일 내부 출력을 시작합니다.");
 		FileReader fr = null;
+		BufferedReader br = null;
 		
 		try {
 			fr = new FileReader("C:/MyWork/"+folderName+"file/"+fileName+".txt");
+			br = new BufferedReader(fr);
 			
 			while(true) {
 				char[] arr = new char[150];
-				int result = fr.read(arr);
+				int result = br.read(arr);
 				
 				if(result==-1) break;
 				System.out.print(arr);					
@@ -85,6 +93,7 @@ public class BufferedQuiz {
 			e.printStackTrace();
 		} finally {
 			try {
+				br.close();
 				fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
