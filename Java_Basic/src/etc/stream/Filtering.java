@@ -17,22 +17,24 @@ public class Filtering {
 
         // 메뉴 중에 채식주의자가 먹을 수 있는 요리를 필터링
         menuList.stream()
+                .filter(Dish::isVegitarain)
                 .filter(dish -> dish.isVegitarain())
                 .collect(Collectors.toList())
-                .forEach(dish -> System.out.println(dish));
+                .forEach(System.out::println);
 
         System.out.println("============ 육류이면서 600칼로리 미만의 요리를 필터링");
         menuList.stream()
                 .filter(d -> d.getType() == Dish.Type.MEAT && d.getCalories() < 600)
                 .collect(Collectors.toList())
-                .forEach(d -> System.out.println(d));
+                .forEach(System.out::println);
+                 // .forEach(dish -> System.out.println(dish)); // 람다의 메서드 축약 참조법.
 
 
         System.out.println("============ 요리 중에 요리 이름이 4글자인 요리만 필터링");
         menuList.stream()
                 .filter(dish -> dish.getName().length() == 4)
                 .collect(Collectors.toList())
-                .forEach(d -> System.out.println(d));
+                .forEach(System.out::println);
 
 
         System.out.println("============ 요리중에 300칼로리보다 큰 요리만 필터링 / limit()");
@@ -40,7 +42,7 @@ public class Filtering {
                 .filter(dish -> dish.getCalories() > 300)
                 .limit(3) // .limit() -> 상위 top3 추출 (아 참고로 정렬명령은 내리지 않았으니, 리스트에 들어가있는 그 순서중에서 상위 3개를 가져온 것!)
                 .collect(Collectors.toList())
-                .forEach(d -> System.out.println(d));
+                .forEach(System.out::println);
 
 
         System.out.println("====================== skip() ===============================");
@@ -48,7 +50,7 @@ public class Filtering {
                 .filter(dish -> dish.getCalories() > 300)
                 .skip(2) // 맨 앞 2개 제외시킴
                 .collect(Collectors.toList())
-                .forEach(d -> System.out.println(d));
+                .forEach(System.out::println);
 
 
         System.out.println("==== 메뉴 목록에서 처음 등장하는 2개의 생선요리 필터링 ====");

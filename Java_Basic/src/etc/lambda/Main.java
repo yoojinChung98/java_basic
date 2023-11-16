@@ -54,6 +54,7 @@ public class Main {
                 return apple.getColor() == RED || apple.getColor() == YELLOW;
             }
         });
+//        List<Apple> apples2 = filterApple(appleBasket, apple -> apple.getColor() == RED || apple.getColor() == YELLOW );
 
         for (Apple apple : apples2) {
             System.out.println(apple);
@@ -73,13 +74,13 @@ public class Main {
         System.out.println("=======================여러가지를 필터링========================");
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-//        List<Integer> filter1 = filter(numbers, n -> n % 2 == 1);
         List<Integer> filter1 = filter(numbers, new GenericPredicate<Integer>() {
             @Override
             public boolean test(Integer n) {
                 return n % 2 == 1;
             }
         });
+//        List<Integer> filter1 = filter(numbers, n -> n%2 == 1);
         System.out.println(filter1);
 
         System.out.println("=================================================");

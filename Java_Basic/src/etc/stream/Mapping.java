@@ -80,10 +80,9 @@ public class Mapping {
         System.out.println("=========================================");
         menuList.stream()
                 .filter(dish -> dish.getCalories() > 500)
-                .map(dish -> new DishNameType(dish))
+                .map(DishNameType::new)
                 .collect(Collectors.toList())
                 .forEach(ds -> System.out.println("ds = " + ds));
-
 
 
     }
